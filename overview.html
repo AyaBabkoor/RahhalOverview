@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="رحّال هي منصة سياحية ذكية داخل المملكة العربية السعودية تجمع تخطيط الرحلات واستكشاف الفعاليات وإدارة الرحلات في نظام واحد."
+  />
+  <meta name="theme-color" content="#1f3d3a" />
+  <title>رحّال | Overview</title>
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://www.rahhal.it.com/"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;family=Marhey:wght@400;600;700&amp;family=Tajawal:wght@400;500;700;800;900&amp;family=Cairo:wght@400;600;700&amp;family=Noto+Kufi+Arabic:wght@400;600&amp;display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --font-display: "Marhey", cursive;
+      --font-body: "Tajawal", "Cairo", "Noto Kufi Arabic", "IBM Plex Sans Arabic", sans-serif;
+      --bg: #f7fbfa;
+      --card: #ffffff;
+      --ink: #1f3d3a;
+      --muted: #4f6f69;
+      --accent: #4fb3a6;
+      --accent-strong: #9b7653;
+      --accent-soft: rgba(79, 179, 166, 0.14);
+      --sand: #fffaf2;
+      --stroke: rgba(31, 61, 58, 0.12);
+      --shadow-sm: 0 10px 22px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 16px 40px rgba(0, 0, 0, 0.08);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    body.en {
+      direction: ltr;
+    }
+
+    body:not(.en) .lang-en {
+      display: none !important;
+    }
+
+    body.en .lang-ar {
+      display: none !important;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 24px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--stroke);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 8px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-copy {
+      display: grid;
+      gap: 2px;
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 14px;
+      color: var(--ink);
+      font-weight: 600;
+      transition: transform 0.18s ease, background-color 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex-shrink: 0;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      padding: 2px 4px;
+      font-weight: 700;
+    }
+
+    .lang-btn.active {
+      color: var(--accent-strong);
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.2s ease, border-color 0.18s ease;
+    }
+
+    .primary-btn {
+      background: var(--accent-strong);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(216, 130, 53, 0.18);
+    }
+
+    .secondary-btn {
+      background: var(--sand);
+      border: 1px solid var(--stroke);
+      color: var(--ink);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover,
+    .primary-btn:focus-visible,
+    .secondary-btn:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      padding-bottom: 56px;
+    }
+
+    .hero {
+      padding: 42px 0 0;
+      min-height: calc(100vh - 92px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--sand);
+      border: 1px solid var(--stroke);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
+      line-height: 1.08;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .hero-title .accent-word {
+      color: var(--accent-strong);
+    }
+
+    .hero-text {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 700px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      direction: ltr;
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 18px;
+      width: min(100%, 760px);
+    }
+
+    .collage {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .card {
+      position: relative;
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card.big {
+      min-height: 540px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 18px;
+      height: 540px;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    .card.small {
+      min-height: 0;
+    }
+
+    .plane-dot {
+      position: absolute;
+      top: 18px;
+      right: -16px;
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--accent-strong);
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      z-index: 2;
+    }
+
+    .plane-dot svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .list-item i,
+    .step i,
+    .stack-meta i {
+      width: 24px;
+      height: 24px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    body:not(.en) .hero-copy {
+      order: 1;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    body:not(.en) .hero-right {
+      order: 2;
+    }
+
+    body:not(.en) .hero-actions {
+      justify-content: flex-start;
+    }
+
+    body.en .hero-copy {
+      order: 1;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    body.en .hero-right {
+      order: 2;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .stat-card span {
+      color: var(--muted);
+    }
+
+    .section {
+      display: grid;
+      gap: 20px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-copy {
+      max-width: 760px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .section-text {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--sand);
+      border: 1px solid var(--stroke);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 20px;
+    }
+
+    .surface-card {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .surface-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      color: var(--ink);
+    }
+
+    .surface-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .surface-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .accent-card {
+      background: linear-gradient(180deg, rgba(79, 179, 166, 0.06), rgba(255, 255, 255, 0.98));
+    }
+
+    .gold-card {
+      background: linear-gradient(180deg, rgba(155, 118, 83, 0.08), rgba(255, 255, 255, 0.98));
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      color: var(--ink);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      grid-column: span 4;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card.wide {
+      grid-column: span 6;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: var(--ink);
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .feature-card h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    .feature-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.08fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .journey-media {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(10, 33, 31, 0.12), rgba(10, 33, 31, 0.52)),
+        url("https://rahhal-front.vercel.app/assets/red-sea-C3Nrz_B4.png") center/cover;
+      box-shadow: var(--shadow-md);
+    }
+
+    .journey-glass {
+      position: absolute;
+      inset-inline-start: 24px;
+      inset-inline-end: 24px;
+      bottom: 24px;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      color: var(--ink);
+      backdrop-filter: blur(10px);
+    }
+
+    .journey-glass h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+    }
+
+    .journey-glass p {
+      margin: 0;
+      color: rgba(31, 61, 58, 0.82);
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--sand);
+      border: 1px solid var(--stroke);
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .stack-wrap {
+      display: grid;
+      gap: 20px;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stack-card {
+      grid-column: span 3;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stack-card.wide {
+      grid-column: span 4;
+    }
+
+    .stack-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .stack-type {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.84rem;
+    }
+
+    .stack-card h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 1.18rem;
+    }
+
+    .stack-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .member-card {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .member-avatar {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 18px;
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 1.18rem;
+    }
+
+    .member-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+
+    .member-card h3 a,
+    .supervisor-card h3 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.18s ease, opacity 0.18s ease;
+    }
+
+    .member-card h3 a:hover,
+    .member-card h3 a:focus-visible,
+    .supervisor-card h3 a:hover,
+    .supervisor-card h3 a:focus-visible {
+      color: var(--accent-strong);
+      outline: none;
+    }
+
+    .member-role {
+      margin-top: 10px;
+      color: var(--accent-strong);
+      font-weight: 700;
+    }
+
+    .member-note {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .supervisor-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(155, 118, 83, 0.08), rgba(255, 255, 255, 0.98));
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .supervisor-mark {
+      width: 88px;
+      height: 88px;
+      display: grid;
+      place-items: center;
+      border-radius: 26px;
+      background: rgba(155, 118, 83, 0.14);
+      color: var(--accent-strong);
+      font-weight: 900;
+      font-size: 1.18rem;
+    }
+
+    .cta {
+      background: linear-gradient(180deg, rgba(79, 179, 166, 0.08), rgba(255, 255, 255, 0.98));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.15;
+    }
+
+    .cta p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .footer {
+      margin-top: 36px;
+      border-top: 1px solid var(--stroke);
+      padding: 26px 0 0;
+      background: #ffffff;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .footerInner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(200px, 1fr));
+      gap: 28px;
+      padding: 10px 0 22px;
+      color: var(--muted);
+      align-items: start;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .footerBrand {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      max-width: 430px;
+    }
+
+    .footerLogo {
+      height: 56px;
+      width: auto;
+    }
+
+    .footerBlock {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .footerTitle {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .footerText {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .footerLinks,
+    .footerContact {
+      display: grid;
+      gap: 6px;
+    }
+
+    .footerContact span {
+      color: var(--muted);
+    }
+
+    .footerContact a {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .footerContact a:hover,
+    .footerContact a:focus-visible,
+    .footerLinks a:hover,
+    .footerLinks a:focus-visible {
+      color: var(--accent);
+      outline: none;
+    }
+
+    .footerLinks a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .footerSocial {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .socialBtn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #f1f6f5;
+      border: 1px solid var(--stroke);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .socialBtn:hover,
+    .socialBtn:focus-visible {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .footerBottom {
+      border-top: 1px solid var(--stroke);
+      padding: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1120px) {
+      .hero-wrap,
+      .overview-grid,
+      .journey-grid,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-card,
+      .feature-card.wide,
+      .stack-card,
+      .stack-card.wide {
+        grid-column: span 6;
+      }
+
+      .cta-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .nav {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 8px;
+      }
+
+      .header-actions {
+        margin-inline-start: auto;
+      }
+
+      .card.big {
+        width: 320px;
+        height: 340px;
+      }
+
+      .card.small {
+        width: 180px;
+        height: 156px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        min-height: auto;
+        padding-top: 26px;
+      }
+
+      .hero-wrap {
+        gap: 20px;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+
+      .stats,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collage {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .stack {
+        width: 100%;
+        max-width: 320px;
+        justify-items: stretch;
+        height: auto;
+        grid-template-rows: none;
+      }
+
+      .card.big,
+      .card.small {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .card.big {
+        height: 300px;
+        min-height: 300px;
+      }
+
+      .card.small {
+        height: 170px;
+        min-height: 170px;
+      }
+
+      .plane-dot {
+        top: 12px;
+        right: 12px;
+        width: 58px;
+        height: 58px;
+      }
+
+      .feature-card,
+      .feature-card.wide,
+      .stack-card,
+      .stack-card.wide {
+        grid-column: span 12;
+      }
+
+      .supervisor-card {
+        grid-template-columns: 1fr;
+      }
+
+      .footerInner {
+        grid-template-columns: 1fr;
+      }
+
+      .footerBottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="#top">
+          <img
+            src="https://rahhal-front.vercel.app/assets/rahhal-logo-D-nvagjn.png"
+            alt="Rahhal"
+          />
+        </a>
+
+        <nav class="nav" aria-label="Primary Navigation">
+          <a href="#about">
+            <span class="lang-ar">عن رحّال</span>
+            <span class="lang-en">About</span>
+          </a>
+          <a href="#features">
+            <span class="lang-ar">المزايا</span>
+            <span class="lang-en">Features</span>
+          </a>
+          <a href="#stack">
+            <span class="lang-ar">التقنيات</span>
+            <span class="lang-en">Stack</span>
+          </a>
+          <a href="#team">
+            <span class="lang-ar">الفريق</span>
+            <span class="lang-en">Team</span>
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-toggle" role="group" aria-label="Language switcher">
+            <button class="lang-btn active" type="button" data-lang="ar">AR</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+          </div>
+          <a
+            class="primary-btn"
+            href="https://www.rahhal.it.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="lang-ar">افتح رحّال</span>
+            <span class="lang-en">Open Rahhal</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-wrap">
+          <div class="hero-copy reveal">
+            <h1 class="hero-title">
+              <span class="lang-ar">اكتشف <span class="accent-word">كنوز</span> رحّال</span>
+              <span class="lang-en">Discover Rahhal's <span class="accent-word">treasures</span></span>
+            </h1>
+            <p class="hero-text">
+              <span class="lang-ar">نخطط لك تجارب أصيلة تلائم اهتماماتك، من الطبيعة إلى الثقافة في أنحاء المملكة. ثم نحوّل هذا الاكتشاف إلى خطط سفر ذكية وتجربة متكاملة داخل رحّال.</span>
+              <span class="lang-en">We plan authentic experiences tailored to your interests, from nature to culture across the Kingdom, then turn that discovery into smart travel plans inside Rahhal.</span>
+            </p>
+          </div>
+
+          <div class="hero-right reveal">
+            <div class="hero-visual">
+              <div class="collage">
+                <article class="card big">
+                  <img
+                    src="https://rahhal-front.vercel.app/assets/alula-BDSiCAnZ.jpg"
+                    alt="AlUla"
+                  />
+                </article>
+
+                <div class="stack">
+                  <article class="card small">
+                    <img
+                      src="https://rahhal-front.vercel.app/assets/riyadh-DJlF255N.jpg"
+                      alt="Riyadh"
+                    />
+                  </article>
+                  <article class="card small">
+                    <img
+                      src="https://rahhal-front.vercel.app/assets/jeddah-8jX7ojhV.jpg"
+                      alt="Jeddah"
+                    />
+                  </article>
+                </div>
+
+                <div class="plane-dot" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="m21.77 2.23-8.6 19.6a.75.75 0 0 1-1.4-.08l-2.21-7.27-7.27-2.21a.75.75 0 0 1-.08-1.4l19.6-8.6a.75.75 0 0 1 .96.96Z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container section">
+        <div class="section-head reveal">
+          <div class="section-copy">
+            <h2 class="section-title">
+              <span class="lang-ar">  رحـال   </span>
+              <span class="lang-en">Rahhal's identity reframed into a cleaner overview page</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="overview-grid">
+          <article class="surface-card reveal">
+            <h3>
+              <span class="lang-ar">عن رحّال</span>
+              <span class="lang-en">About Rahhal</span>
+            </h3>
+            <p>
+              <span class="lang-ar">رحّال هي منصة سياحية ذكية داخل المملكة العربية السعودية تجمع تخطيط الرحلات واستكشاف الفعاليات وإدارة الرحلات في نظام واحد. تساعد المستخدمين على اكتشاف الوجهات والفعاليات، إنشاء خطط سفر مخصصة بالذكاء الاصطناعي، وإدارة الرحلات الجماعية والمدرسية بسهولة.</span>
+              <span class="lang-en">Rahhal is a smart tourism platform in Saudi Arabia that combines trip planning, event discovery, and trip management in one system. It helps users discover destinations and events, create personalized AI itineraries, and manage group and school trips with ease.</span>
+            </p>
+            <div class="list">
+              <div class="list-item">
+                <i>1</i>
+                <span class="lang-ar">اكتشاف الوجهات والفعاليات السياحية من نفس المنصة</span>
+                <span class="lang-en">Discover destinations and tourism events from the same platform</span>
+              </div>
+              <div class="list-item">
+                <i>2</i>
+                <span class="lang-ar">خطة سفر مخصصة حسب المدينة والميزانية والاهتمامات</span>
+                <span class="lang-en">Create tailored travel plans by city, budget, and interests</span>
+              </div>
+              <div class="list-item">
+                <i>3</i>
+                <span class="lang-ar">إدارة الرحلات الجماعية والمدرسية والحجوزات بسهولة</span>
+                <span class="lang-en">Manage group trips, school trips, and bookings with ease</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="surface-stack">
+            <article class="surface-card gold-card reveal">
+              <h3>
+                <span class="lang-ar">المشكلة</span>
+                <span class="lang-en">Problem Statement</span>
+              </h3>
+              <p>
+                <span class="lang-ar">تعتمد معظم الخدمات السياحية الحالية على منصات منفصلة للبحث عن الفعاليات، التخطيط للرحلات، وإدارة الحجوزات، مما يسبب تجربة مشتتة للمستخدم. كما تفتقر الكثير من الحلول إلى التخطيط الذكي للرحلات ودعم الرحلات المدرسية وإدارة المجموعات بشكل متكامل.</span>
+                <span class="lang-en">Most current tourism services rely on separate platforms for event search, trip planning, and booking management, creating a fragmented user experience. Many solutions also lack intelligent trip planning and integrated support for school trips and group management.</span>
+              </p>
+            </article>
+
+            <article class="surface-card accent-card reveal">
+              <h3>
+                <span class="lang-ar">الحلول</span>
+                <span class="lang-en">Our Solution</span>
+              </h3>
+              <div class="list">
+                <div class="list-item">
+                  <i>01</i>
+                  <span class="lang-ar">تخطيط الرحلات بالذكاء الاصطناعي</span>
+                  <span class="lang-en">AI-powered trip planning</span>
+                </div>
+                <div class="list-item">
+                  <i>02</i>
+                  <span class="lang-ar">استكشاف الفعاليات السياحية</span>
+                  <span class="lang-en">Tourism event discovery</span>
+                </div>
+                <div class="list-item">
+                  <i>03</i>
+                  <span class="lang-ar">إدارة الرحلات الجماعية</span>
+                  <span class="lang-en">Group trip management</span>
+                </div>
+                <div class="list-item">
+                  <i>04</i>
+                  <span class="lang-ar">إدارة الرحلات المدرسية والموافقات</span>
+                  <span class="lang-en">School trip and approval management</span>
+                </div>
+                <div class="list-item">
+                  <i>05</i>
+                  <span class="lang-ar">الحجوزات وQR والتقييمات ودعم العربية والإنجليزية</span>
+                  <span class="lang-en">Bookings, QR, reviews, and Arabic-English support</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container section">
+        <div class="section-head reveal">
+          <div class="section-copy">
+            <h2 class="section-title">
+              <span class="lang-ar">المزايا الأساسية داخل تجربة رحّال</span>
+              <span class="lang-en">The core capabilities inside Rahhal</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card wide reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 16.5c-1.8 2.7-4.9 4.5-8.5 4.5C6 21 2 17 2 12.2 2 8.1 5 4.6 8.9 3.6"></path>
+                <path d="M14 3h7v7"></path>
+                <path d="M21 3 9.5 14.5"></path>
+              </svg>
+            </div>
+            <h3>
+              <span class="lang-ar">تخطيط رحلة بالذكاء الاصطناعي</span>
+              <span class="lang-en">AI Trip Planner</span>
+            </h3>
+            <p>
+              <span class="lang-ar">إنشاء خطة سفر مخصصة بناءً على الوجهة والميزانية والاهتمامات.</span>
+              <span class="lang-en">Generate a personalized travel plan based on destination, budget, and interests.</span>
+            </p>
+          </article>
+
+          <article class="feature-card wide reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 2v4"></path>
+                <path d="M16 2v4"></path>
+                <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                <path d="M3 10h18"></path>
+              </svg>
+            </div>
+            <h3>
+              <span class="lang-ar">اكتشاف الفعاليات</span>
+              <span class="lang-en">Event Discovery</span>
+            </h3>
+            <p>
+              <span class="lang-ar">استعراض الفعاليات السياحية والانتقال لمصادر الحجز الرسمية.</span>
+              <span class="lang-en">Browse tourism events and move to official booking sources.</span>
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <path d="M20 8v6M23 11h-6"></path>
+              </svg>
+            </div>
+            <h3>
+              <span class="lang-ar">الرحلات الجماعية</span>
+              <span class="lang-en">Group Trips</span>
+            </h3>
+            <p>
+              <span class="lang-ar">إنشاء رحلات جماعية أو الانضمام إلى رحلات منشأة من قبل مستخدمين آخرين.</span>
+              <span class="lang-en">Create group trips or join trips created by other users.</span>
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"></path>
+              </svg>
+            </div>
+            <h3>
+              <span class="lang-ar">الرحلات المدرسية</span>
+              <span class="lang-en">School Trips</span>
+            </h3>
+            <p>
+              <span class="lang-ar">إدارة الرحلات المدرسية وموافقات أولياء الأمور والتقارير.</span>
+              <span class="lang-en">Manage school trips, parent approvals, and reports.</span>
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <path d="M7 7h.01M7 12h.01M7 17h.01M12 7h.01M12 12h.01M12 17h.01M17 7h.01M17 12h.01M17 17h.01"></path>
+              </svg>
+            </div>
+            <h3>
+              <span class="lang-ar">حجز QR</span>
+              <span class="lang-en">QR Booking</span>
+            </h3>
+            <p>
+              <span class="lang-ar">عرض الحجوزات والوصول إليها باستخدام QR Code.</span>
+              <span class="lang-en">Access bookings using QR codes.</span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="container section stack-wrap">
+        <div class="section-head reveal">
+          <div class="section-copy">
+            <h2 class="section-title">
+              <span class="lang-ar">تقنيات رحّال والأنظمة الداعمة</span>
+              <span class="lang-en">Rahhal's technologies and supporting systems</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="stack-grid">
+          <article class="stack-card wide reveal">
+            <div class="stack-top">
+              <span class="stack-type">
+                <span class="lang-ar">Frontend</span>
+                <span class="lang-en">Frontend</span>
+              </span>
+              <span class="stack-meta"><i>01</i></span>
+            </div>
+            <h3>React.js</h3>
+            <p>
+              <span class="lang-ar">يبني تجربة استخدام مرنة وسريعة لعرض الوجهات والفعاليات والتخطيط.</span>
+              <span class="lang-en">Builds a fast, flexible interface for destinations, events, and planning.</span>
+            </p>
+          </article>
+
+          <article class="stack-card wide reveal">
+            <div class="stack-top">
+              <span class="stack-type">
+                <span class="lang-ar">Backend</span>
+                <span class="lang-en">Backend</span>
+              </span>
+              <span class="stack-meta"><i>02</i></span>
+            </div>
+            <h3>NestJS</h3>
+            <p>
+              <span class="lang-ar">ينظم الخدمات الخلفية الخاصة بالرحلات والفعاليات والحجوزات والموافقات.</span>
+              <span class="lang-en">Organizes backend services for trips, events, bookings, and approvals.</span>
+            </p>
+          </article>
+
+          <article class="stack-card wide reveal">
+            <div class="stack-top">
+              <span class="stack-type">
+                <span class="lang-ar">Database</span>
+                <span class="lang-en">Database</span>
+              </span>
+              <span class="stack-meta"><i>03</i></span>
+            </div>
+            <h3>MySQL</h3>
+            <p>
+              <span class="lang-ar">يوفر تخزينًا منظمًا للبيانات الخاصة بالمستخدمين والرحلات والوجهات والحجوزات.</span>
+              <span class="lang-en">Provides structured storage for users, trips, destinations, and bookings.</span>
+            </p>
+          </article>
+
+          <article class="stack-card reveal">
+            <div class="stack-top">
+              <span class="stack-type">AI</span>
+              <span class="stack-meta"><i>04</i></span>
+            </div>
+            <h3>OpenAI API</h3>
+            <p>
+              <span class="lang-ar">يدعم إنشاء خطط سفر ذكية مخصصة بحسب معطيات المستخدم.</span>
+              <span class="lang-en">Supports personalized AI itinerary generation.</span>
+            </p>
+          </article>
+
+          <article class="stack-card reveal">
+            <div class="stack-top">
+              <span class="stack-type">Email</span>
+              <span class="stack-meta"><i>05</i></span>
+            </div>
+            <h3>SendGrid</h3>
+            <p>
+              <span class="lang-ar">يرسل التنبيهات والمراسلات المتعلقة بالموافقات والحجوزات.</span>
+              <span class="lang-en">Handles notifications for approvals and bookings.</span>
+            </p>
+          </article>
+
+          <article class="stack-card reveal">
+            <div class="stack-top">
+              <span class="stack-type">Integration</span>
+              <span class="stack-meta"><i>06</i></span>
+            </div>
+            <h3>REST APIs</h3>
+            <p>
+              <span class="lang-ar">تربط المنصة مع مصادر البيانات والخدمات الخارجية بشكل قابل للتوسع.</span>
+              <span class="lang-en">Connects the platform with external services and data sources.</span>
+            </p>
+          </article>
+
+          <article class="stack-card reveal">
+            <div class="stack-top">
+              <span class="stack-type">Workflow</span>
+              <span class="stack-meta"><i>07</i></span>
+            </div>
+            <h3>GitHub</h3>
+            <p>
+              <span class="lang-ar">يدعم إدارة الكود والتعاون بين أعضاء الفريق ومتابعة التطوير.</span>
+              <span class="lang-en">Supports code management, collaboration, and development tracking.</span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container section">
+        <div class="section-head reveal">
+          <div class="section-copy">
+            <h2 class="section-title">
+              <span class="lang-ar">أعضاء الفريق والإشراف</span>
+              <span class="lang-en">Team members and supervision</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="team-grid">
+          <article class="member-card reveal">
+            <h3>
+              <a href="https://www.linkedin.com/in/aya-adnan-3aa630274" target="_blank" rel="noopener noreferrer">
+                <span class="lang-ar">م. اية عدنان بابكور</span>
+                <span class="lang-en">Eng. Aya Adnan Babkoor</span>
+              </a>
+            </h3>
+            <div class="member-role">
+              <span class="lang-ar">عضو الفريق</span>
+              <span class="lang-en">Team Member</span>
+            </div>
+            <div class="member-note">
+              <span class="lang-ar">ضمن فريق عمل موقع رحّال وتجهيز تجربة المنصة والعرض.</span>
+              <span class="lang-en">Part of the Rahhal development and presentation team.</span>
+            </div>
+          </article>
+
+          <article class="member-card reveal">
+            <h3>
+              <a href="https://www.linkedin.com/in/samaramerasiri/" target="_blank" rel="noopener noreferrer">
+                <span class="lang-ar">م. سمر عامر عسيري</span>
+                <span class="lang-en">Eng. Samar Amer Asiri</span>
+              </a>
+            </h3>
+            <div class="member-role">
+              <span class="lang-ar">عضو الفريق</span>
+              <span class="lang-en">Team Member</span>
+            </div>
+            <div class="member-note">
+              <span class="lang-ar">ضمن فريق عمل موقع رحّال وتجهيز تجربة المنصة والعرض.</span>
+              <span class="lang-en">Part of the Rahhal development and presentation team.</span>
+            </div>
+          </article>
+
+          <article class="member-card reveal">
+            <h3>
+              <a href="https://www.linkedin.com/in/remakhalid/" target="_blank" rel="noopener noreferrer">
+                <span class="lang-ar">م. ريما خالد الغامدي</span>
+                <span class="lang-en">Eng. Rema Khalid Alghamdi</span>
+              </a>
+            </h3>
+            <div class="member-role">
+              <span class="lang-ar">عضو الفريق</span>
+              <span class="lang-en">Team Member</span>
+            </div>
+            <div class="member-note">
+              <span class="lang-ar">ضمن فريق عمل موقع رحّال وتجهيز تجربة المنصة والعرض.</span>
+              <span class="lang-en">Part of the Rahhal development and presentation team.</span>
+            </div>
+          </article>
+
+          <article class="member-card reveal">
+            <h3>
+              <a href="https://www.linkedin.com/in/raghad-ibrahim-560798272/" target="_blank" rel="noopener noreferrer">
+                <span class="lang-ar">م. رغد ابراهيم الصبحي</span>
+                <span class="lang-en">Eng. Raghad Ibrahim Alsobhi</span>
+              </a>
+            </h3>
+            <div class="member-role">
+              <span class="lang-ar">عضو الفريق</span>
+              <span class="lang-en">Team Member</span>
+            </div>
+            <div class="member-note">
+              <span class="lang-ar">ضمن فريق عمل موقع رحّال وتجهيز تجربة المنصة والعرض.</span>
+              <span class="lang-en">Part of the Rahhal development and presentation team.</span>
+            </div>
+          </article>
+        </div>
+
+        <article class="supervisor-card reveal">
+          <div>
+            <h3>
+              <a href="https://www.linkedin.com/in/dr-budoor-allehyani/?locale=ar" target="_blank" rel="noopener noreferrer">
+                <span class="lang-ar">إشراف: د. بدور اللحياني</span>
+                <span class="lang-en">Supervision: Dr. Budoor Al-Lihyani</span>
+              </a>
+            </h3>
+            <p>
+              <span class="lang-ar">إشراف أكاديمي على تطوير المشروع ومخرجاته النهائية.</span>
+              <span class="lang-en">Academic supervision over the project's development, quality, and final presentation direction.</span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footerInner reveal">
+        <div class="footerBrand">
+          <img
+            class="footerLogo"
+            src="https://rahhal-front.vercel.app/assets/rahhal-logo-D-nvagjn.png"
+            alt="Rahhal"
+          />
+          <p class="footerText">
+            <span class="lang-ar">رحّال منصة تساعدك على التخطيط لاجمل رحلاتك داخل المملكة بسهولة ومرونة.</span>
+            <span class="lang-en">Rahhal helps you plan your best trips across the Kingdom with ease and flexibility.</span>
+          </p>
+        </div>
+
+        <div class="footerBlock">
+          <strong class="footerTitle">
+            <span class="lang-ar">المساعدة</span>
+            <span class="lang-en">Help</span>
+          </strong>
+          <div class="footerLinks">
+            <a href="https://rahhal-front.vercel.app/how-to-start">
+              <span class="lang-ar">كيف أبدأ؟</span>
+              <span class="lang-en">How to start?</span>
+            </a>
+            <a href="https://rahhal-front.vercel.app/faq">
+              <span class="lang-ar">الأسئلة الشائعة</span>
+              <span class="lang-en">FAQ</span>
+            </a>
+            <a href="https://rahhal-front.vercel.app/contact">
+              <span class="lang-ar">تواصل معنا</span>
+              <span class="lang-en">Contact us</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footerBlock">
+          <strong class="footerTitle">
+            <span class="lang-ar">تواصل معنا</span>
+            <span class="lang-en">Contact us</span>
+          </strong>
+          <div class="footerContact">
+            <a href="mailto:swe.uqu26@gmail.com">swe.uqu26@gmail.com</a>
+            <span>
+              <span class="lang-ar">الخدمة متاحة يوميًا من 9ص إلى 9م</span>
+              <span class="lang-en">Support available daily from 9am to 9pm</span>
+            </span>
+          </div>
+          <div class="footerSocial">
+            <a
+              class="socialBtn"
+              href="https://x.com/rahhalweb?s=11&t=HpviNSILl07UsXDxa6vWTA"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="X"
+            >X</a>
+            <a
+              class="socialBtn"
+              href="https://www.linkedin.com/in/rahal-website-108160406"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >LI</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footerBottom">
+        <span>
+          <span class="lang-ar">© Rahhal 2026 — جميع الحقوق محفوظة</span>
+          <span class="lang-en">© Rahhal 2026 — All rights reserved</span>
+        </span>
+        <span class="muted">
+          <span class="lang-ar">سياسة الخصوصية · شروط الاستخدام</span>
+          <span class="lang-en">Privacy Policy · Terms of Use</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const html = document.documentElement;
+    const langButtons = document.querySelectorAll(".lang-btn");
+    const revealItems = document.querySelectorAll(".reveal");
+
+    function applyLanguage(lang) {
+      const isEnglish = lang === "en";
+      body.classList.toggle("en", isEnglish);
+      html.lang = isEnglish ? "en" : "ar";
+      html.dir = isEnglish ? "ltr" : "rtl";
+      document.title = isEnglish ? "Rahhal | Overview" : "رحّال | Overview";
+
+      langButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+
+      localStorage.setItem("rahhal-overview-lang", lang);
+    }
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyLanguage(button.dataset.lang);
+      });
+    });
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("visible"));
+    }
+
+    applyLanguage(localStorage.getItem("rahhal-overview-lang") || "ar");
+  </script>
+</body>
+</html>
