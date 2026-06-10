@@ -190,6 +190,11 @@
       flex-shrink: 0;
     }
 
+    .mobile-account-btn,
+    .menu-toggle {
+      display: none;
+    }
+
     .lang-toggle {
       display: inline-flex;
       align-items: center;
@@ -308,7 +313,7 @@
     }
 
     .hero-actions {
-      display: flex;
+      display: none;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
@@ -322,9 +327,43 @@
     }
 
     .hero-visual {
+      position: relative;
+      isolation: isolate;
       display: grid;
       gap: 18px;
       width: min(100%, 760px);
+    }
+
+    .hero-scene,
+    .route-plane {
+      display: none;
+    }
+
+    .hero-scene {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .scene-map,
+    .scene-route {
+      position: absolute;
+      width: 100%;
+      height: auto;
+    }
+
+    .scene-map {
+      top: 58px;
+      left: 0;
+      opacity: 0.32;
+    }
+
+    .scene-route {
+      top: 6px;
+      left: 0;
+      color: #73c8c0;
+      opacity: 0.92;
     }
 
     .collage {
@@ -333,6 +372,7 @@
       grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
       gap: 18px;
       align-items: stretch;
+      z-index: 1;
     }
 
     .card {
@@ -387,6 +427,24 @@
     .plane-dot svg {
       width: 22px;
       height: 22px;
+    }
+
+    .route-plane {
+      position: absolute;
+      top: 86px;
+      right: 138px;
+      width: 118px;
+      height: 118px;
+      color: #64c1b7;
+      z-index: 1;
+      transform: rotate(4deg);
+    }
+
+    .route-plane svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      filter: drop-shadow(0 10px 16px rgba(100, 193, 183, 0.18));
     }
 
     .list-item i,
@@ -1019,43 +1077,180 @@
 
     @media (max-width: 720px) {
       .site-header {
-        background: #ffffff;
+        background: linear-gradient(180deg, #f5fbfa 0%, #ffffff 100%);
+        padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+        padding-bottom: 16px;
+      }
+
+      .site-header .container {
+        padding: 0 12px;
       }
 
       .header-inner {
         display: grid;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 12px;
-        padding: 10px 0 14px;
+        direction: ltr;
+        grid-template-columns: 52px minmax(0, 1fr) auto 52px;
+        align-items: center;
+        justify-items: stretch;
+        gap: 8px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(31, 61, 58, 0.08);
+        border-radius: 30px;
+        box-shadow: 0 16px 32px rgba(31, 61, 58, 0.08);
+      }
+
+      .brand {
+        width: auto;
+        justify-content: center;
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: center;
       }
 
       .brand img {
-        height: 56px;
+        height: 44px;
+      }
+
+      .mobile-account-btn,
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .mobile-account-btn {
+        grid-column: 1;
+        grid-row: 1;
+        background: var(--accent-strong);
+        color: #ffffff;
+      }
+
+      .mobile-account-btn svg,
+      .menu-toggle svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .menu-toggle {
+        grid-column: 4;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        appearance: none;
+        border: 1px solid rgba(31, 61, 58, 0.12);
+        background: #ffffff;
+        color: var(--ink);
+        cursor: pointer;
+      }
+
+      .menu-toggle .menu-line {
+        width: 24px;
+        height: 2.5px;
+        border-radius: 999px;
+        background: currentColor;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .menu-toggle .menu-line + .menu-line {
+        margin-top: 5px;
+      }
+
+      .site-header.menu-open .menu-toggle .menu-line:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+      }
+
+      .site-header.menu-open .menu-toggle .menu-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .site-header.menu-open .menu-toggle .menu-line:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
       }
 
       .header-actions {
-        gap: 10px;
-      }
-
-      .lang-toggle {
+        grid-column: 2;
+        grid-row: 1;
+        width: auto;
+        gap: 0;
         justify-content: center;
       }
 
+      .lang-toggle {
+        position: relative;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 18px;
+        gap: 22px;
+        border-radius: 999px;
+        background: #ffffff;
+        border: 1px solid rgba(31, 61, 58, 0.12);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .lang-toggle::after {
+        content: "";
+        position: absolute;
+        top: 14px;
+        bottom: 14px;
+        left: 50%;
+        width: 2px;
+        transform: translateX(-50%);
+        background: rgba(31, 61, 58, 0.62);
+        border-radius: 999px;
+      }
+
+      .lang-btn {
+        position: relative;
+        z-index: 1;
+        padding: 0;
+        font-size: 1rem;
+      }
+
+      .lang-btn.active {
+        color: var(--ink);
+      }
+
       .nav {
-        display: grid;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        order: initial;
+        width: 100%;
+        display: none;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: stretch;
+        gap: 10px;
+        padding-top: 6px;
+        direction: rtl;
+      }
+
+      body.en .nav {
+        direction: ltr;
+      }
+
+      .site-header.menu-open .nav {
+        display: grid;
       }
 
       .nav a {
         text-align: center;
         width: 100%;
+        background: rgba(255, 250, 242, 0.7);
+        border: 1px solid rgba(31, 61, 58, 0.08);
+      }
+
+      .header-actions .primary-btn {
+        display: none;
       }
 
       .hero {
         min-height: auto;
-        padding-top: 26px;
+        padding-top: 18px;
       }
 
       .hero-wrap {
@@ -1068,9 +1263,27 @@
         align-items: stretch;
       }
 
+      .hero-actions {
+        display: flex;
+        margin-top: 32px;
+        gap: 12px;
+      }
+
       .primary-btn,
       .secondary-btn {
         width: 100%;
+      }
+
+      .hero-actions .primary-btn,
+      .hero-actions .secondary-btn {
+        min-height: 82px;
+        border-radius: 28px;
+        font-size: 1.35rem;
+      }
+
+      .hero-actions .secondary-btn {
+        background: #ffffff;
+        box-shadow: var(--shadow-sm);
       }
 
       .stats,
@@ -1085,6 +1298,12 @@
       .hero-visual {
         width: min(100%, 430px);
         margin-inline: auto;
+        padding-top: 88px;
+      }
+
+      .hero-scene,
+      .route-plane {
+        display: block;
       }
 
       .collage {
@@ -1118,9 +1337,29 @@
         min-height: 0;
       }
 
+      .scene-map {
+        top: 58px;
+        left: -10px;
+        width: calc(100% + 20px);
+        opacity: 0.38;
+      }
+
+      .scene-route {
+        top: 14px;
+        left: 8px;
+        width: calc(100% - 18px);
+      }
+
+      .route-plane {
+        top: -32px;
+        right: 124px;
+        width: 98px;
+        height: 98px;
+      }
+
       .plane-dot {
-        top: 18px;
-        right: -10px;
+        top: 28px;
+        right: -2px;
         width: 58px;
         height: 58px;
       }
@@ -1151,6 +1390,19 @@
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
+        <a
+          class="mobile-account-btn"
+          href="https://www.rahhal.it.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Rahhal"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+            <circle cx="12" cy="8" r="4"></circle>
+          </svg>
+        </a>
+
         <a class="brand" href="#top">
           <img
             src="https://rahhal-front.vercel.app/assets/rahhal-logo-D-nvagjn.png"
@@ -1158,7 +1410,19 @@
           />
         </a>
 
-        <nav class="nav" aria-label="Primary Navigation">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+        >
+          <span class="menu-line"></span>
+          <span class="menu-line"></span>
+          <span class="menu-line"></span>
+        </button>
+
+        <nav class="nav" id="primaryNav" aria-label="Primary Navigation">
           <a href="#about">
             <span class="lang-ar">عن رحّال</span>
             <span class="lang-en">About</span>
@@ -1209,11 +1473,67 @@
               <span class="lang-ar">نخطط لك تجارب أصيلة تلائم اهتماماتك، من الطبيعة إلى الثقافة في أنحاء المملكة. ثم نحوّل هذا الاكتشاف إلى خطط سفر ذكية وتجربة متكاملة داخل رحّال.</span>
               <span class="lang-en">We plan authentic experiences tailored to your interests, from nature to culture across the Kingdom, then turn that discovery into smart travel plans inside Rahhal.</span>
             </p>
+            <div class="hero-actions">
+              <a
+                class="primary-btn"
+                href="https://www.rahhal.it.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="lang-ar">خطط رحلتك</span>
+                <span class="lang-en">Plan your trip</span>
+              </a>
+              <a class="secondary-btn" href="#features">
+                <span class="lang-ar">استعرض الوجهات</span>
+                <span class="lang-en">Browse destinations</span>
+              </a>
+            </div>
           </div>
 
           <div class="hero-right reveal">
             <div class="hero-visual">
+              <div class="hero-scene" aria-hidden="true">
+                <svg class="scene-map" viewBox="0 0 620 430" fill="none">
+                  <path
+                    d="M41 194 69 137l61-30 71-49 70 15 57 37 49 44 56 41 56 36 29 39-14 48-49 24-30 35-83 10-38-25-41 13-63-18-38-31-46 7-36-29-15-46-35-29 3-44Z"
+                    fill="#f7efe5"
+                    stroke="#e9d9c7"
+                    stroke-width="10"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M122 146 177 172l55-16 72 26 37 45 65 26"
+                    stroke="#efe1d2"
+                    stroke-width="8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M170 319 236 286l92 18 56 42"
+                    stroke="#efe1d2"
+                    stroke-width="8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                <svg class="scene-route" viewBox="0 0 620 220" fill="none">
+                  <path
+                    d="M141 53c-19-24-58-26-74-4-16 21-2 49 26 49 31 0 36-39 12-53-26-15-60 6-62 37-2 38 43 54 76 37 25-13 46-13 72 5 32 22 49 58 97 91 66 47 161 47 263 43"
+                    stroke="currentColor"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-dasharray="18 14"
+                  ></path>
+                </svg>
+              </div>
+
               <div class="collage">
+                <div class="route-plane" aria-hidden="true">
+                  <svg viewBox="0 0 120 120" fill="currentColor">
+                    <path d="m103.28 43.26-39.17 1.74L34.52 19.4c-4.69-4.08-11.87-4.02-16.49.15l-1.31 1.18 22.51 31.22-18.36.81-10.97-8.42a6.08 6.08 0 0 0-7.79.37L0 46.93l10.61 12.2a10.44 10.44 0 0 0 8.42 3.59l20.38-.9-19.47 27 1.43 1.04c4.9 3.56 11.54 3.33 16.18-.55L64 65.42l38.28-1.69c9.94-.44 17.72-8.85 17.28-18.79l-.04-.88-16.24-.8Z"></path>
+                  </svg>
+                </div>
+
                 <article class="card big">
                   <img
                     src="https://rahhal-front.vercel.app/assets/alula-BDSiCAnZ.jpg"
@@ -1733,8 +2053,17 @@
   <script>
     const body = document.body;
     const html = document.documentElement;
+    const siteHeader = document.querySelector(".site-header");
     const langButtons = document.querySelectorAll(".lang-btn");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelectorAll(".nav a");
     const revealItems = document.querySelectorAll(".reveal");
+
+    function setMenuState(isOpen) {
+      if (!siteHeader || !menuToggle) return;
+      siteHeader.classList.toggle("menu-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
 
     function applyLanguage(lang) {
       const isEnglish = lang === "en";
@@ -1753,8 +2082,30 @@
     langButtons.forEach((button) => {
       button.addEventListener("click", () => {
         applyLanguage(button.dataset.lang);
+        setMenuState(false);
       });
     });
+
+    if (menuToggle) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteHeader.classList.contains("menu-open");
+        setMenuState(!isOpen);
+      });
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        setMenuState(false);
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 720) {
+        setMenuState(false);
+      }
+    });
+
+    setMenuState(false);
 
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(
